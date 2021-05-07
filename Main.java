@@ -1,23 +1,23 @@
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Main{
+ class Mai1n{
     public static void main(String[] args) {
-        List<Song> list = new ArrayList<>();
+        TreeSet<Song> list = new TreeSet<>(new Song.ComparatorByDurability());
         Song song1 = new Song("song1",2.30);
         Song song2 = new Song("song2",1.30);
         Song song3 = new Song("song3",3.30);
         list.add(song1); list.add(song2); list.add(song3);
-        Collections.sort(list,new Song.ComparatorByDurability());
         System.out.println(list);
+        Song[] array = {song1,song2,song3};
 
-        Collections.sort(list, new Comparator<Song>() {
+        Arrays.sort(array, new Comparator<Song>() {
             @Override
             public int compare(Song o1, Song o2) {
                 return String.CASE_INSENSITIVE_ORDER.compare(o1.songName, o2.songName);
             }
         });
-        System.out.println(list);
+        System.out.println(array);
     }
 }
 class Song {
